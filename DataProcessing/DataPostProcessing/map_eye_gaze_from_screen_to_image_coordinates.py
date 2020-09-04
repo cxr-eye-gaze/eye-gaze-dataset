@@ -83,6 +83,7 @@ def map_eye_gaze_to_image_coordinates(session_table, cases, calibration=False, s
         image_name = row['DICOM_ID']
 
         try:
+            #Load original MIMIC dicom image
             ds = pydicom.dcmread(os.path.join(original_folder_images, image_name + '.dcm'))
 
             image = ds.pixel_array.copy().astype(np.float)
@@ -95,6 +96,7 @@ def map_eye_gaze_to_image_coordinates(session_table, cases, calibration=False, s
                                               cases.loc[case_index, 'image_left'], cases.loc[case_index, 'image_right']
 
         except:
+            #This is calibration image
             image = np.zeros((screen_height, screen_width, 3), dtype=np.uint8)
             top, bottom, left, right = (0, 0, 0, 0)
         if (image.shape[0]%2)>0:
@@ -174,4 +176,4 @@ if __name__ == '__main__':
     process_mapping(experiment_name='fixation_mapping', datatype='fixations.csv')
 
     # To map eye_gaze.csv eye gaze coordinates into original image coordinates uncomment the following line
-    process_mapping(experiment_name='eye_gaze_mapping', datatype='eye_gaze.csv')
+    # process_mapping(experiment_name='eye_gaze_mapping', datatype='eye_gaze.csv')

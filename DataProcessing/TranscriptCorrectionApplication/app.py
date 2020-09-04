@@ -330,5 +330,7 @@ class MyApp:
             print('Successfully created visits file')
 
 #This app was used to correct the transcripts
+#Just click 'Load JSON dir' and navigate to `audio_segmentation_transcripts` folder and click OK
+
 myapp = MyApp(tk)
 tk.mainloop()

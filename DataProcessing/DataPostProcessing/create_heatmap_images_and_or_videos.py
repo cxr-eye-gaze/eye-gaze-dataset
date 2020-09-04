@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from skvideo.io import FFmpegWriter
 import glob
 
-#Replace with your dicom_id_folder as described in readme file
+#Replace with the location of the MIMIC-CXR images
 original_folder_images='/gpfs/fs0/data/mimic_cxr/images/'
 
 

@@ -179,7 +179,7 @@ def apply_windowing(image, info):
 
 
 
-def sample_table(df, condition, sample_size=30):
+def sample_table(df, condition, dicom_folder, sample_size=30):
     '''
     Main method to sample and prepare the images for the eye gaze experiment
     :param df: dataframe for each condition as prepared from BigQuery notebook (i.e. CHF.csv, pneumonia.csv, normal.csv)
@@ -188,8 +188,7 @@ def sample_table(df, condition, sample_size=30):
     :return: dataframe with the sampled images
     '''
 
-    #please replace with your MIMIC dicom folder
-    dicom_folder = '/gpfs/fs0/data/mimic_cxr/images/'
+
 
     #need to remove certain dicoms because they are lateral
     df = df[~df['dicom_id'].isin(["5c13613e-ef59f921-1d415722-5b44c97f-aee12446", "20e6d7e5-95dbe5ce-dc5e7723-0999596b-e073bdd1", "71bf1bb2-7e38d563-9c161ee3-358ff751-d60d7764", "bbecb088-ef5b8f91-a2eb4213-5ea73654-8ea1823c" ,"f9827698-aed9071f-1e06447a-8619201f-8dade2da","7c2009f1-ee0f8421-08560c62-1406c85a-e637c07b","84ac762a-197e9336-65d15eee-0760e16d-7df96f81"])]
@@ -263,6 +262,11 @@ def sample_table(df, condition, sample_size=30):
 
 
 if __name__ == '__main__':
+
+    # Replace with the dicom folder you downloaded the MIMIC-CXR Database images
+    dicom_folder = '/gpfs/fs0/data/mimic_cxr/images/'
+
+
     #Create a new folder to store data the eye gaze experiment
     try:
         os.mkdir('Data')
@@ -273,17 +277,17 @@ if __name__ == '__main__':
     except:
         pass
 
-    #We are exploring three conditions
+    #There are three conditions
     conditions = ['pneumonia','normals', 'CHF']
     for condition in conditions:
-        case_list = pd.read_csv(os.path.join('Resources',condition+'.csv'))
+        case_list = pd.read_csv(os.path.join('../../Resources',condition+'.csv'))
         if condition == 'CHF':
             #!!! We needed to increase the sampling size for CHF due to limited cases based on age/gender criteria!!!!
-            chf_table = sample_table(case_list,condition,48)
+            chf_table = sample_table(case_list,condition,dicom_folder,48)
         if condition == 'pneumonia':
-            pneumonia_table = sample_table(case_list,condition)
+            pneumonia_table = sample_table(case_list,condition,dicom_folder)
         if condition == 'normals':
-            normals_table = sample_table(case_list,condition)
+            normals_table = sample_table(case_list,condition,dicom_folder)
 
     master_sheet = pd.concat([chf_table, pneumonia_table,normals_table])
     master_sheet.to_csv(os.path.join('Data','master_sheet.csv'), index=False, header=True)
@@ -293,10 +297,10 @@ if __name__ == '__main__':
     #Read images from folder
     folder = os.path.join('Data','All')
 
-    #Create a new folder 'Cases' where to store all cases to use for the eye gaze experiment
-    #This was used on the eye gaze experiment
+    #Create a new folder 'Sessions' where to store all cases to use for the eye gaze experiment
+    #These sessions were used on the eye gaze experiment
     try:
-        os.mkdir(os.path.join('Data','Cases'))
+        os.mkdir(os.path.join('Data','Sessions'))
     except:
         pass
 
@@ -310,13 +314,13 @@ if __name__ == '__main__':
             saving_folder = str(counter)
             counter+=1
             try:
-                os.mkdir(os.path.join('Data', 'Cases',saving_folder))
+                os.mkdir(os.path.join('Data', 'Sessions',saving_folder))
             except:
                 pass
 
-        copyfile(os.path.join(folder,file), os.path.join('Data', 'Cases',saving_folder,file))
+        copyfile(os.path.join(folder,file), os.path.join('Data', 'Sessions',saving_folder,file))
 
-    #THE IMAGES FOR THE EYE GAZE EXPERIMENT ARE STORED IN /Data/Cases/num_folder
+    #THE IMAGES FOR THE EYE GAZE EXPERIMENT ARE STORED IN /Data/Sessions/num_folder
 
 
 
