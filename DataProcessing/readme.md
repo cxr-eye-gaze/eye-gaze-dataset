@@ -4,12 +4,10 @@ User needs to download the [Eye Gaze dataset](https://physionet.org/content/egd-
 
 Note: The Eye Gaze dataset should be placed in the [Resources folder](../Resources). 
 
-Once the files are downloaded then the following scripts are functional.
+Once the files are downloaded then the following scripts are functional. **The Data Preperation section is totally optional and they are shared for transparency purposes. We have the pre-processed data hosted on Physionet.** 
 
 ## Description
 There are four (4) folders containing the scripts used in the data preparation, data post-processing and validation tasks as described in the paper.
-
-## The Data Preperation section is totally optional and they are shared for transparency purposes. We have the pre-processed data hosted on Physionet. 
 
 ### [Data Preparation](./DataPreparation) 
 This folder contains scripts to reproduce data preparation for the eye gaze experiment.  There are 3 scripts (run in sequence) that were used to query the MIMIC-IV Database (Google Cloud Big Query) and apply the inclusion/exclusion criteria as described in the paper:
