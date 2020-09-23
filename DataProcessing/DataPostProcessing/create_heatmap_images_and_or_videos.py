@@ -17,9 +17,9 @@ import glob
 original_folder_images='/gpfs/fs0/data/mimic_cxr/images/'
 
 
-def create_videos(input_folder, eye_gaze_table,data_type):
+def create_videos(input_folder, eye_gaze_table, cases_table, data_type):
     '''
-    This method is not necessary. It just creates videos of heatmaps using heatmap frames for particular eye_gaze_table.
+    This method is optional. It just creates videos of heatmaps using heatmap frames for particular eye_gaze_table.
     It can ONLY run after process_eye_gaze_table() method finishes.
 
     :param input_folder: Folder with saved heatmap frames (see process_eye_gaze_table())
@@ -39,12 +39,13 @@ def create_videos(input_folder, eye_gaze_table,data_type):
         print('Subfolder\n',subfolder.split('/')[-1])
         files = glob.glob(os.path.join(subfolder,"*frame.png"))
 
+        #Extract image name
         image_name = subfolder.split('/')[-1]
 
-        try:
-            os.mkdir(os.path.join(input_folder))
-        except:
-            pass
+        #Get file path to original image
+        case_index = cases.loc[cases['dicom_id'] == image_name].index[0]
+        file_path = cases.loc[case_index, 'path']
+
 
         try:
             os.mkdir(os.path.join(input_folder,image_name))
@@ -55,8 +56,8 @@ def create_videos(input_folder, eye_gaze_table,data_type):
 
             if i == 0:
                 try:
-                    #Try to load dicom image
-                    ds = pydicom.dcmread(os.path.join(original_folder_images, image_name + '.dcm'))
+                    #Load dicom image
+                    ds = pydicom.dcmread(os.path.join(original_folder_images,file_path))
                     image = ds.pixel_array.copy().astype(np.float)
                     image /= np.max(image)
                     image *= 255.
@@ -186,7 +187,11 @@ def process_eye_gaze_table(session_table,export_folder, cases ,window=0, calibra
         eyeY = row['FPOGY']*screen_height + calibratedY
 
         #Get image name
-        image_name = row['DICOM_ID']
+        image_name = row['dicom_id']
+
+        #Get file path
+        file_path = row['path']
+
         # print(image_name, index, session_table.shape[0], previous_image_name, image_name)
         #Condition to start a new eye gaze drawing job
         if previous_image_name != image_name:
@@ -231,8 +236,8 @@ def process_eye_gaze_table(session_table,export_folder, cases ,window=0, calibra
                 os.mkdir(os.path.join(export_folder, image_name))
 
 
-            if os.path.exists(os.path.join(original_folder_images, image_name + '.dcm')) == True:
-                ds = pydicom.dcmread(os.path.join(original_folder_images, image_name + '.dcm'))
+            if os.path.exists(os.path.join(original_folder_images, file_path)) == True:
+                ds = pydicom.dcmread(os.path.join(original_folder_images, file_path))
 
                 image = ds.pixel_array.copy().astype(np.float)
                 image /= np.max(image)
@@ -337,9 +342,9 @@ def process_fixations(experiment_name, video=False):
 
     #Save experiment consolidated table
     final_table.to_csv(experiment_name+'.csv', index=False)
-    #Create video files with heatmaps
+    #Create video files with fixation heatmaps
     if video==True:
-        create_videos(experiment_name,final_table, data_type='fixations')
+        create_videos(experiment_name,final_table, cases, data_type='fixations')
 
 def process_raw_eye_gaze(experiment_name, video=False):
 
@@ -367,14 +372,14 @@ def process_raw_eye_gaze(experiment_name, video=False):
 
     # Save experiment consolidated table
     final_table.to_csv(experiment_name + '.csv', index=False)
-    #Create video files with heatmaps
+    #Create video files with raw eye gaze heatmaps
     if video==True:
-        create_videos(experiment_name, final_table, data_type='raw_eye_gaze')
+        create_videos(experiment_name, final_table, cases, data_type='raw_eye_gaze')
 
 if __name__ == '__main__':
 
-    #FOR fixations.csv: To generate heatmap images, map eye gaze coordinates into original image coordinates and create videos of the heatmaps, uncomment the following line
+    #FOR fixations.csv: To generate heatmap images and create videos of the heatmaps, uncomment the following line
     process_fixations(experiment_name='fixation_heatmaps')
 
-    #FOR eye_gaze.csv: To generate heatmap images, map eye gaze coordinates into original image coordinates and create videos of the heatmaps, uncomment the following line
-    process_raw_eye_gaze(experiment_name='eye_gaze_heatmaps')
+    #The following method is required only if you want to work with the raw eye gaze data (as they come from the machine unprocessed). Please read paper for the differences.
+    # process_raw_eye_gaze(experiment_name='eye_gaze_heatmaps')
