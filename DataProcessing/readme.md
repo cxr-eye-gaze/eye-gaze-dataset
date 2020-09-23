@@ -1,6 +1,6 @@
 
 ## Requirements
-User needs to download the Eye Gaze dataset as well as the [MIMIC-CXR dataset](https://doi.org/10.13026/C2JT1Q). 
+User needs to download the [Eye Gaze dataset](https://physionet.org/content/egd-cxr/1.0.0/) as well as the [MIMIC-CXR dataset](https://doi.org/10.13026/C2JT1Q). 
 
 Note: The Eye Gaze dataset should be placed in the [Resources folder](../Resources). 
 
