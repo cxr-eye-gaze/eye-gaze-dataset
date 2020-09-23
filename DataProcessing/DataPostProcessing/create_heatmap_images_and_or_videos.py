@@ -319,8 +319,8 @@ def process_fixations(experiment_name, video=False):
 
     print('--------> FIXATIONS <--------')
 
-    cases = pd.read_csv('master_sheet.csv')
-    table = pd.read_csv('fixations.csv')
+    cases = pd.read_csv('../../Resources/master_sheet.csv')
+    table = pd.read_csv('../../Resources/fixations.csv')
 
     sessions = table.groupby(['SESSION_ID'])
 
@@ -350,8 +350,8 @@ def process_raw_eye_gaze(experiment_name, video=False):
 
     print('--------> RAW EYE GAZE <--------')
 
-    cases = pd.read_csv('master_sheet.csv')
-    table = pd.read_csv('eye_gaze.csv')
+    cases = pd.read_csv('../../Resources/master_sheet.csv')
+    table = pd.read_csv('../../Resources/eye_gaze.csv')
 
     sessions = table.groupby(['SESSION_ID'])
 
