@@ -1,13 +1,13 @@
 
 ## Requirements
-User needs to download the [Eye Gaze dataset](https://physionet.org/content/egd-cxr/1.0.0/) as well as the [MIMIC-CXR dataset](https://doi.org/10.13026/C2JT1Q). 
+User needs to download the [Eye Gaze dataset](https://physionet.org/content/egd-cxr/1.0.0/) as well as the images from [MIMIC-CXR dataset](https://doi.org/10.13026/C2JT1Q). 
 
 Note: The Eye Gaze dataset should be placed in the [Resources folder](../Resources). 
 
 Once the files are downloaded then the following scripts are functional. **The Data Preperation section is totally optional and they are shared for transparency purposes. We have the pre-processed data hosted on Physionet.** 
 
 ## Description
-There are four (4) folders containing the scripts used in the data preparation, data post-processing and validation tasks as described in the paper.
+There are four (4) folders containing the scripts used in the data preparation, data post-processing and validation tasks as described in the paper. 
 
 ### [Data Preparation](./DataPreparation) 
 This folder contains scripts to reproduce data preparation for the eye gaze experiment.  There are 3 scripts (run in sequence) that were used to query the MIMIC-IV Database (Google Cloud Big Query) and apply the inclusion/exclusion criteria as described in the paper:
@@ -18,7 +18,7 @@ This folder contains scripts to reproduce data preparation for the eye gaze expe
 ### [Data Processing](./DataPostProcessing)
 - [calibration_image.png](./DataPostProcessing/calibration_image.png): This is the calibration image used in the eye gaze experiment
 - [create_heatmap_images_and_or_videos.py](./DataPostProcessing/create_heatmap_images_and_or_videos.py): This script generates the temporal and static heatmaps using the `eye_gaze.csv` and `fixations.csv`. It requires that MIMIC images have been downloaded.
-- [map_eye_gaze_from_screen_to_image_coordinates.py](./DataPostProcessing/map_eye_gaze_from_screen_to_image_coordinates.py): This script maps eye gaze from screen coordinates (i.e. `FPOGX`,`FPOGY`) to original image coordinates (i.e `X_ORIGINAL`,`Y_ORIGINAL`). Running this script is optional since both `eye_gaze.csv` and `fixations.csv` contain this information. It requires that MIMIC images have been downloaded.
+- [map_eye_gaze_from_screen_to_image_coordinates.py](./DataPostProcessing/map_eye_gaze_from_screen_to_image_coordinates.py): This script maps eye gaze from screen coordinates (i.e. `FPOGX`,`FPOGY`) to original image coordinates (i.e `X_ORIGINAL`,`Y_ORIGINAL`). **Running this script is optional since both `eye_gaze.csv` and `fixations.csv` contain this information. This is only if you want to replicate the Eye gaze mapping.** 
 - [speech_to_text.py](./DataPostProcessing/speech_to_text.py): This script was used to call Google's Speech-To-Text API to generate the transcripts from audio
 
 ### [Transcript Correction Application](./TranscriptCorrectionApplication)
