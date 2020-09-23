@@ -9,8 +9,10 @@ Once the files are downloaded then the following scripts are functional.
 ## Description
 There are four (4) folders containing the scripts used in the data preparation, data post-processing and validation tasks as described in the paper.
 
-### [Data Preparation](./DataPreparation)
-This folder contains scripts to reproduce data preparation for the eye gaze experiment. They are totally optional and they are shared for transparency purposes. There are 3 scripts (run in sequence) that were used to query the MIMIC-IV Database (Google Cloud Big Query) and apply the inclusion/exclusion criteria as described in the paper:
+## The Data Preperation section is totally optional and they are shared for transparency purposes. We have the pre-processed data hosted on Physionet. 
+
+### [Data Preparation](./DataPreparation) 
+This folder contains scripts to reproduce data preparation for the eye gaze experiment.  There are 3 scripts (run in sequence) that were used to query the MIMIC-IV Database (Google Cloud Big Query) and apply the inclusion/exclusion criteria as described in the paper:
 1. [Linking_CXRs_to_ED_admissions.ipynb](DataPreparation/Linking_CXRs_to_ED_admissions.ipynb): This Google Cloud Big Query script produces a table linking all MIMIC-CXRs that are associated with an ED admission in MIMIC-IV Database. User is recommended to follow instructions here to run these queries:
 2. [Sample_CXR_eye_gaze_dataset.ipynb](DataPreparation/Sample_CXR_eye_gaze_dataset.ipynb): This Google Cloud Big Query script applies the inclusion/exclusion criteria to generate one table per condition: Pneumonia, CHF, and Normal. User is recommended to follow instructions here to run this script: 
 3. [preparing_images_master_sheet.py](DataPreparation/image_preparation.py): This script generates the `master_sheet.csv` table as well as the resized images to use in the eye gaze experiment. It uses the condition tables (Pneumonia, CHF, Normal) from step 2 above. As a requirement, MIMIC-CXR images have to be downloaded first. User may skip the Google Cloud Big Query scripts (1 and 2 above) and just run this script using the downloaded files found in `inclusion_exclusion_criteria_outputs` folder in our PhysioNet project. 
