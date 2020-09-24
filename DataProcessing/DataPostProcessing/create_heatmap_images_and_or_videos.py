@@ -1,3 +1,4 @@
+
 import pandas as pd
 import multiprocessing
 import sys
@@ -14,7 +15,7 @@ from skvideo.io import FFmpegWriter
 import glob
 
 #Replace with the location of the MIMIC-CXR images
-original_folder_images='/gpfs/fs0/data/mimic_cxr/images/'
+original_folder_images='/data/MIMIC/MIMIC-IV/cxr_v2/physionet.org/files/mimic-cxr/2.0.0'
 
 
 def create_videos(input_folder, eye_gaze_table, cases_table, data_type):
@@ -140,7 +141,7 @@ def calibrate(eye_gaze_table,screen_width=1920, screen_height=1080):
         print('No calibration available')
         return .0,.0
 
-def process_eye_gaze_table(session_table,export_folder, cases ,window=0, calibration=False, sigma = 150, screen_width=1920, screen_height=1080):
+def process_eye_gaze_table(session_table, export_folder, cases, window=0, calibration=False, sigma = 150, screen_width=1920, screen_height=1080):
     '''
     Main method to process eye gaze session table (e.g. fixations or raw eye gaze) to create heatmap frames for each coordinate.
     The frames are saved in export_folder/dicom_id
@@ -187,10 +188,12 @@ def process_eye_gaze_table(session_table,export_folder, cases ,window=0, calibra
         eyeY = row['FPOGY']*screen_height + calibratedY
 
         #Get image name
-        image_name = row['dicom_id']
+        # print(row)
+        image_name = row['DICOM_ID']
 
         #Get file path
-        file_path = row['path']
+        case_index = cases.loc[cases['dicom_id'] == image_name].index[0]
+        file_path = cases.iloc[case_index]['path']
 
         # print(image_name, index, session_table.shape[0], previous_image_name, image_name)
         #Condition to start a new eye gaze drawing job
@@ -246,8 +249,8 @@ def process_eye_gaze_table(session_table,export_folder, cases ,window=0, calibra
                 image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
                 # Load metadata (top, bottom, left, right padding pixel dimensions) about the particular dicom image from the master spreadsheet
                 case_index = cases.loc[cases['dicom_id'] == image_name].index[0]
-                top, bottom, left, right = cases.loc[case_index, 'image_top'], cases.loc[case_index, 'image_bottom'], \
-                                              cases.loc[case_index, 'image_left'], cases.loc[case_index, 'image_right']
+                top, bottom, left, right = cases.iloc[case_index]['image_top_pad'], cases.iloc[case_index]['image_bottom_pad'], \
+                                              cases.iloc[case_index]['image_left_pad'], cases.iloc[case_index]['image_right_pad']
 
             else:
                 image = np.zeros((screen_height, screen_width,3), dtype=np.uint8)
@@ -319,13 +322,13 @@ def process_fixations(experiment_name, video=False):
 
     print('--------> FIXATIONS <--------')
 
-    cases = pd.read_csv('../../Resources/master_sheet.csv')
-    table = pd.read_csv('../../Resources/fixations.csv')
+    cases = pd.read_csv('../../physionet.org/files/egd-cxr/1.0.0/master_sheet.csv')
+    table = pd.read_csv('../../physionet.org/files/egd-cxr/1.0.0/fixations.csv')
 
     sessions = table.groupby(['SESSION_ID'])
 
     try:
-        os.mkdir(experiment_name)
+        os.makedirs(experiment_name, exist_ok=True)
     except OSError as exc:
         print(exc, ' Proceeding...')
         pass
