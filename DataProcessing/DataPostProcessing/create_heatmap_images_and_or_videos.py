@@ -353,8 +353,9 @@ def process_raw_eye_gaze(experiment_name, video=False):
 
     print('--------> RAW EYE GAZE <--------')
 
-    cases = pd.read_csv('../../Resources/master_sheet.csv')
-    table = pd.read_csv('../../Resources/eye_gaze.csv')
+    cases = pd.read_csv('../../physionet.org/files/egd-cxr/1.0.0/master_sheet.csv')
+    table = pd.read_csv('../../physionet.org/files/egd-cxr/1.0.0/fixations.csv')
+
 
     sessions = table.groupby(['SESSION_ID'])
 
