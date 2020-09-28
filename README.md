@@ -48,4 +48,4 @@ where **USERNAME** is your physionet.org username (the commands will prompt for 
 ### Repository Structure:
 - [Data Processing folder](./DataProcessing) contains code to post process the data (i.e. map eye gaze coordinates to image coordinates, run speech to text on audio files), prepare the master_sheet.csv file and images used in the study, and reproduce validations as described in the paper.
 Read [the readme file](./DataProcessing/readme.md) for more details. 
-- [Experiments](./Experiments) contains code for the machine learning experiments presented in the paper
+- [Experiments](./Experiments) contains code for the machine learning experiments presented in the paper.
