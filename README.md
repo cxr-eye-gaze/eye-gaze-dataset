@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Creation and Validation of a Chest X-Ray Dataset with Eye-tracking and Report Dictation for AI Tool Development
 
 ### Introduction
