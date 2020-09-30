@@ -1,0 +1,346 @@
+23:51:09,496 eyegaze INFO Tesla P100-PCIE-16GB
+23:51:09,496 eyegaze INFO [Arguments]: Namespace(alpha=1.0, attention=True, batch_size=16, brnn_hm=True, cell='lstm', class_names=['Normal', 'CHF', 'pneumonia'], data_path='resources/master_sheet.csv', device=device(type='cuda', index=3), dropout=0.5, emb_dim=64, epochs=20, finetuned=True, freeze=True, gpus='3,4,5,6,7', gray_scale=False, h5_path='/data/MIMIC/images', heatmaps_path='/data/MIMIC/eye_gaze/fixation_heatmaps/uncalibrated/temporal_heatmaps', hidden_dim=64, hidden_hm=[128], lambda=0.5, lr=0.001, lvalue=5.0, model_teacher='simplecnn', model_type='baseline', num_layers_hm=1, num_workers=16, omega=1.0, output_dir='results', pretrained=True, resize=224, rseed=42, scheduler=True, test=False, testdir=None, viz=False)
+23:51:11,895 eyegaze INFO EyegazeSimple(
+  (image_encoder): XRayNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (batch1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (pool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (dense_layers): ModuleList(
+      (0): Linear(in_features=200704, out_features=128, bias=True)
+      (1): BatchNorm1d(128, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+    )
+    (dropout1): Dropout(p=0.5, inplace=True)
+    (final_dense): Linear(in_features=128, out_features=64, bias=True)
+  )
+  (classifier): Classifier(
+    (fc): Linear(in_features=64, out_features=3, bias=True)
+  )
+)
+23:51:11,896 eyegaze INFO Number of parameters:25708483
+Using 5 GPUs!
+23:51:11,897 eyegaze INFO  MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09
+23:51:11,897 eyegaze INFO Scheduler == True
+23:51:11,897 eyegaze INFO Epoch 0/19
+23:51:11,897 eyegaze INFO ----------
+23:51:45,382 eyegaze INFO Val Loss: 0.6969
+23:51:45,540 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_0.pth
+23:51:45,541 eyegaze INFO Epoch 1/19
+23:51:45,541 eyegaze INFO ----------
+23:52:14,191 eyegaze INFO Val Loss: 0.8338
+23:52:14,342 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_1.pth
+23:52:14,342 eyegaze INFO Epoch 2/19
+23:52:14,342 eyegaze INFO ----------
+23:52:45,820 eyegaze INFO Val Loss: 0.6130
+23:52:46,3 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_2.pth
+23:52:46,3 eyegaze INFO Epoch 3/19
+23:52:46,3 eyegaze INFO ----------
+23:53:19,884 eyegaze INFO Val Loss: 0.6171
+23:53:20,24 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_3.pth
+23:53:20,24 eyegaze INFO Epoch 4/19
+23:53:20,24 eyegaze INFO ----------
+23:53:50,752 eyegaze INFO Val Loss: 0.6509
+23:53:50,898 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_4.pth
+23:53:50,898 eyegaze INFO Epoch 5/19
+23:53:50,898 eyegaze INFO ----------
+23:54:23,300 eyegaze INFO Val Loss: 0.6191
+23:54:23,439 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_5.pth
+23:54:23,439 eyegaze INFO Epoch 6/19
+23:54:23,439 eyegaze INFO ----------
+23:54:54,171 eyegaze INFO Val Loss: 0.6018
+23:54:54,313 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_6.pth
+23:54:54,313 eyegaze INFO Epoch 7/19
+23:54:54,313 eyegaze INFO ----------
+23:55:25,267 eyegaze INFO Val Loss: 0.6211
+23:55:25,411 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_7.pth
+23:55:25,411 eyegaze INFO Epoch 8/19
+23:55:25,411 eyegaze INFO ----------
+23:55:57,701 eyegaze INFO Val Loss: 0.5749
+23:55:57,843 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_8.pth
+23:55:57,843 eyegaze INFO Epoch 9/19
+23:55:57,843 eyegaze INFO ----------
+23:56:28,115 eyegaze INFO Val Loss: 0.8089
+23:56:28,259 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_9.pth
+23:56:28,259 eyegaze INFO Epoch 10/19
+23:56:28,259 eyegaze INFO ----------
+23:56:58,29 eyegaze INFO Val Loss: 0.5689
+23:56:58,170 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_10.pth
+23:56:58,170 eyegaze INFO Epoch 11/19
+23:56:58,170 eyegaze INFO ----------
+23:57:29,440 eyegaze INFO Val Loss: 0.6569
+23:57:29,597 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_11.pth
+23:57:29,597 eyegaze INFO Epoch 12/19
+23:57:29,597 eyegaze INFO ----------
+23:57:59,720 eyegaze INFO Val Loss: 0.6458
+23:57:59,869 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_12.pth
+23:57:59,869 eyegaze INFO Epoch 13/19
+23:57:59,869 eyegaze INFO ----------
+23:58:30,377 eyegaze INFO Val Loss: 0.5408
+23:58:30,517 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_13.pth
+23:58:30,517 eyegaze INFO Epoch 14/19
+23:58:30,517 eyegaze INFO ----------
+23:58:59,123 eyegaze INFO Val Loss: 0.6358
+23:58:59,264 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_14.pth
+23:58:59,264 eyegaze INFO Epoch 15/19
+23:58:59,264 eyegaze INFO ----------
+23:59:28,919 eyegaze INFO Val Loss: 0.5697
+23:59:29,63 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_15.pth
+23:59:29,63 eyegaze INFO Epoch 16/19
+23:59:29,63 eyegaze INFO ----------
+23:59:57,506 eyegaze INFO Val Loss: 0.5863
+23:59:57,653 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_16.pth
+23:59:57,653 eyegaze INFO Epoch 17/19
+23:59:57,653 eyegaze INFO ----------
+00:00:28,348 eyegaze INFO Val Loss: 0.6112
+00:00:28,496 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_17.pth
+00:00:28,496 eyegaze INFO Epoch 18/19
+00:00:28,496 eyegaze INFO ----------
+00:00:59,556 eyegaze INFO Val Loss: 0.6128
+00:00:59,698 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_18.pth
+00:00:59,698 eyegaze INFO Epoch 19/19
+00:00:59,698 eyegaze INFO ----------
+00:01:30,7 eyegaze INFO Val Loss: 0.6829
+00:01:30,160 eyegaze INFO SAVING MODEL FILE --> results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_19.pth
+00:01:30,160 eyegaze INFO Training complete in 10m 18s
+00:01:30,160 eyegaze INFO Model saved at ...results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09
+00:01:30,160 eyegaze INFO ---- NOW TESTING SET --- 
+Using 5 GPUs!
+00:01:30,349 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_0.pth
+00:01:37,899 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:01:37,900 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:01:37,900 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_0.log **
+00:01:37,906 eyegaze INFO Normal: 0.6410256410256411
+00:01:37,909 eyegaze INFO CHF: 0.6684303350970018
+00:01:37,912 eyegaze INFO pneumonia: 0.41851851851851857
+00:01:37,912 eyegaze INFO mean auroc: 0.5759914982137205
+
+00:01:37,912 eyegaze INFO ** plot and save ROC curves **
+00:01:38,263 eyegaze INFO Average precision score, micro-averaged over all classes: 0.43
+Using 5 GPUs!
+00:01:38,824 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_1.pth
+00:01:46,594 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:01:46,595 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:01:46,595 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_1.log **
+00:01:46,597 eyegaze INFO Normal: 0.735042735042735
+00:01:46,599 eyegaze INFO CHF: 0.7552910052910053
+00:01:46,600 eyegaze INFO pneumonia: 0.4439814814814815
+00:01:46,600 eyegaze INFO mean auroc: 0.6447717406050739
+
+00:01:46,600 eyegaze INFO ** plot and save ROC curves **
+00:01:46,926 eyegaze INFO Average precision score, micro-averaged over all classes: 0.38
+Using 5 GPUs!
+00:01:47,505 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_2.pth
+00:01:54,760 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:01:54,760 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:01:54,761 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_2.log **
+00:01:54,767 eyegaze INFO Normal: 0.7692307692307692
+00:01:54,769 eyegaze INFO CHF: 0.7742504409171076
+00:01:54,772 eyegaze INFO pneumonia: 0.5
+00:01:54,772 eyegaze INFO mean auroc: 0.6811604033826256
+
+00:01:54,772 eyegaze INFO ** plot and save ROC curves **
+00:01:55,106 eyegaze INFO Average precision score, micro-averaged over all classes: 0.51
+Using 5 GPUs!
+00:01:55,689 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_3.pth
+00:02:03,291 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:03,292 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:03,292 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_3.log **
+00:02:03,298 eyegaze INFO Normal: 0.7172364672364673
+00:02:03,300 eyegaze INFO CHF: 0.7826278659611994
+00:02:03,302 eyegaze INFO pneumonia: 0.5152777777777778
+00:02:03,303 eyegaze INFO mean auroc: 0.6717140369918148
+
+00:02:03,303 eyegaze INFO ** plot and save ROC curves **
+00:02:03,635 eyegaze INFO Average precision score, micro-averaged over all classes: 0.42
+Using 5 GPUs!
+00:02:04,218 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_4.pth
+00:02:11,374 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:11,375 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:11,375 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_4.log **
+00:02:11,381 eyegaze INFO Normal: 0.7321937321937322
+00:02:11,383 eyegaze INFO CHF: 0.771604938271605
+00:02:11,385 eyegaze INFO pneumonia: 0.4523148148148148
+00:02:11,386 eyegaze INFO mean auroc: 0.6520378284267173
+
+00:02:11,386 eyegaze INFO ** plot and save ROC curves **
+00:02:11,707 eyegaze INFO Average precision score, micro-averaged over all classes: 0.54
+Using 5 GPUs!
+00:02:12,279 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_5.pth
+00:02:20,149 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:20,149 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:20,149 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_5.log **
+00:02:20,154 eyegaze INFO Normal: 0.7642450142450141
+00:02:20,156 eyegaze INFO CHF: 0.8033509700176367
+00:02:20,159 eyegaze INFO pneumonia: 0.4847222222222222
+00:02:20,159 eyegaze INFO mean auroc: 0.684106068828291
+
+00:02:20,159 eyegaze INFO ** plot and save ROC curves **
+00:02:20,529 eyegaze INFO Average precision score, micro-averaged over all classes: 0.45
+Using 5 GPUs!
+00:02:21,166 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_6.pth
+00:02:29,668 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:29,668 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:29,669 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_6.log **
+00:02:29,674 eyegaze INFO Normal: 0.7806267806267806
+00:02:29,677 eyegaze INFO CHF: 0.8073192239858906
+00:02:29,681 eyegaze INFO pneumonia: 0.5009259259259259
+00:02:29,681 eyegaze INFO mean auroc: 0.6962906435128656
+
+00:02:29,681 eyegaze INFO ** plot and save ROC curves **
+00:02:29,996 eyegaze INFO Average precision score, micro-averaged over all classes: 0.46
+Using 5 GPUs!
+00:02:30,570 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_7.pth
+00:02:37,738 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:37,738 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:37,738 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_7.log **
+00:02:37,744 eyegaze INFO Normal: 0.7485754985754987
+00:02:37,749 eyegaze INFO CHF: 0.7777777777777777
+00:02:37,752 eyegaze INFO pneumonia: 0.5087962962962963
+00:02:37,752 eyegaze INFO mean auroc: 0.6783831908831909
+
+00:02:37,752 eyegaze INFO ** plot and save ROC curves **
+00:02:38,111 eyegaze INFO Average precision score, micro-averaged over all classes: 0.42
+Using 5 GPUs!
+00:02:38,815 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_8.pth
+00:02:45,895 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:45,895 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:45,895 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_8.log **
+00:02:45,898 eyegaze INFO Normal: 0.774928774928775
+00:02:45,900 eyegaze INFO CHF: 0.8381834215167548
+00:02:45,901 eyegaze INFO pneumonia: 0.4634259259259259
+00:02:45,901 eyegaze INFO mean auroc: 0.6921793741238185
+
+00:02:45,901 eyegaze INFO ** plot and save ROC curves **
+00:02:46,253 eyegaze INFO Average precision score, micro-averaged over all classes: 0.61
+Using 5 GPUs!
+00:02:46,945 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_9.pth
+00:02:54,46 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:02:54,47 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:02:54,47 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_9.log **
+00:02:54,50 eyegaze INFO Normal: 0.7528490028490028
+00:02:54,52 eyegaze INFO CHF: 0.8002645502645502
+00:02:54,54 eyegaze INFO pneumonia: 0.4722222222222222
+00:02:54,54 eyegaze INFO mean auroc: 0.6751119251119251
+
+00:02:54,54 eyegaze INFO ** plot and save ROC curves **
+00:02:54,376 eyegaze INFO Average precision score, micro-averaged over all classes: 0.58
+Using 5 GPUs!
+00:02:54,970 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_10.pth
+00:03:02,194 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:02,194 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:02,194 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_10.log **
+00:03:02,198 eyegaze INFO Normal: 0.7870370370370371
+00:03:02,200 eyegaze INFO CHF: 0.8443562610229277
+00:03:02,202 eyegaze INFO pneumonia: 0.524537037037037
+00:03:02,202 eyegaze INFO mean auroc: 0.7186434450323339
+
+00:03:02,202 eyegaze INFO ** plot and save ROC curves **
+00:03:02,529 eyegaze INFO Average precision score, micro-averaged over all classes: 0.63
+Using 5 GPUs!
+00:03:03,126 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_11.pth
+00:03:09,991 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:09,992 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:09,992 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_11.log **
+00:03:09,997 eyegaze INFO Normal: 0.7763532763532763
+00:03:10,0 eyegaze INFO CHF: 0.8130511463844797
+00:03:10,3 eyegaze INFO pneumonia: 0.5310185185185184
+00:03:10,3 eyegaze INFO mean auroc: 0.7068076470854248
+
+00:03:10,3 eyegaze INFO ** plot and save ROC curves **
+00:03:10,324 eyegaze INFO Average precision score, micro-averaged over all classes: 0.53
+Using 5 GPUs!
+00:03:10,909 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_12.pth
+00:03:18,220 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:18,221 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:18,221 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_12.log **
+00:03:18,227 eyegaze INFO Normal: 0.762108262108262
+00:03:18,229 eyegaze INFO CHF: 0.8271604938271605
+00:03:18,232 eyegaze INFO pneumonia: 0.5717592592592592
+00:03:18,232 eyegaze INFO mean auroc: 0.7203426717315605
+
+00:03:18,232 eyegaze INFO ** plot and save ROC curves **
+00:03:18,553 eyegaze INFO Average precision score, micro-averaged over all classes: 0.58
+Using 5 GPUs!
+00:03:19,124 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_13.pth
+00:03:25,969 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:25,970 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:25,970 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_13.log **
+00:03:25,975 eyegaze INFO Normal: 0.7991452991452991
+00:03:25,978 eyegaze INFO CHF: 0.8403880070546738
+00:03:25,982 eyegaze INFO pneumonia: 0.5537037037037037
+00:03:25,982 eyegaze INFO mean auroc: 0.7310790033012254
+
+00:03:25,982 eyegaze INFO ** plot and save ROC curves **
+00:03:26,417 eyegaze INFO Average precision score, micro-averaged over all classes: 0.56
+Using 5 GPUs!
+00:03:26,997 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_14.pth
+00:03:33,873 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:33,874 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:33,874 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_14.log **
+00:03:33,879 eyegaze INFO Normal: 0.7827635327635327
+00:03:33,882 eyegaze INFO CHF: 0.8443562610229277
+00:03:33,884 eyegaze INFO pneumonia: 0.5643518518518518
+00:03:33,884 eyegaze INFO mean auroc: 0.7304905485461042
+
+00:03:33,884 eyegaze INFO ** plot and save ROC curves **
+00:03:34,272 eyegaze INFO Average precision score, micro-averaged over all classes: 0.62
+Using 5 GPUs!
+00:03:34,854 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_15.pth
+00:03:41,688 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:41,688 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:41,688 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_15.log **
+00:03:41,690 eyegaze INFO Normal: 0.7706552706552707
+00:03:41,692 eyegaze INFO CHF: 0.8059964726631393
+00:03:41,693 eyegaze INFO pneumonia: 0.5185185185185185
+00:03:41,693 eyegaze INFO mean auroc: 0.6983900872789762
+
+00:03:41,693 eyegaze INFO ** plot and save ROC curves **
+00:03:42,18 eyegaze INFO Average precision score, micro-averaged over all classes: 0.57
+Using 5 GPUs!
+00:03:42,608 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_16.pth
+00:03:50,50 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:50,50 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:50,51 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_16.log **
+00:03:50,55 eyegaze INFO Normal: 0.7984330484330484
+00:03:50,58 eyegaze INFO CHF: 0.8434744268077602
+00:03:50,60 eyegaze INFO pneumonia: 0.6106481481481482
+00:03:50,60 eyegaze INFO mean auroc: 0.7508518744629856
+
+00:03:50,60 eyegaze INFO ** plot and save ROC curves **
+00:03:50,393 eyegaze INFO Average precision score, micro-averaged over all classes: 0.56
+Using 5 GPUs!
+00:03:50,978 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_17.pth
+00:03:57,813 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:03:57,814 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:03:57,814 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_17.log **
+00:03:57,818 eyegaze INFO Normal: 0.7564102564102564
+00:03:57,821 eyegaze INFO CHF: 0.841710758377425
+00:03:57,823 eyegaze INFO pneumonia: 0.587037037037037
+00:03:57,823 eyegaze INFO mean auroc: 0.728386017274906
+
+00:03:57,823 eyegaze INFO ** plot and save ROC curves **
+00:03:58,152 eyegaze INFO Average precision score, micro-averaged over all classes: 0.64
+Using 5 GPUs!
+00:03:58,719 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_18.pth
+00:04:05,668 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:04:05,668 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:04:05,668 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_18.log **
+00:04:05,671 eyegaze INFO Normal: 0.7656695156695157
+00:04:05,672 eyegaze INFO CHF: 0.8121693121693122
+00:04:05,674 eyegaze INFO pneumonia: 0.599537037037037
+00:04:05,674 eyegaze INFO mean auroc: 0.7257919549586216
+
+00:04:05,674 eyegaze INFO ** plot and save ROC curves **
+00:04:05,995 eyegaze INFO Average precision score, micro-averaged over all classes: 0.51
+Using 5 GPUs!
+00:04:06,582 eyegaze INFO MODEL FILE --- results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/Epoch_19.pth
+00:04:13,408 eyegaze INFO ------------------------------------------------------------------------------------------------------------------------
+00:04:13,408 eyegaze INFO y_hat shape (3, 96) and y shape (3, 96)
+00:04:13,408 eyegaze INFO ** write log to results/baseline_gray_scaleFalse_finetunedTrue_freezeTrue_batch_size16_epochs20_lr0.001_schedulerTrue_resize224_dropout0.5_hidden_dim64_emb_dim64_hidden_hm[128]_num_layers_hm1_celllstm_brnn_hmTrue_attentionTrue_lambda0.5_lvalue5.0_2020-09-1923:51:09/plots/Epoch_19.log **
+00:04:13,413 eyegaze INFO Normal: 0.8133903133903133
+00:04:13,416 eyegaze INFO CHF: 0.8209876543209876
+00:04:13,418 eyegaze INFO pneumonia: 0.6245370370370369
+00:04:13,418 eyegaze INFO mean auroc: 0.752971668249446
+
+00:04:13,419 eyegaze INFO ** plot and save ROC curves **
+00:04:13,732 eyegaze INFO Average precision score, micro-averaged over all classes: 0.46
+00:04:14,107 eyegaze INFO Best AUC:0.752971668249446 from model with name: Epoch_19.pth
