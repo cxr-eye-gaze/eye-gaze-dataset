@@ -1,6 +1,6 @@
 # Eyegaze Dataset
 
-This is the code repo for the experiments presented in **"Creation and Validation of a Chest X-Ray Datasetwith Eye-tracking and Report Dictation for AI ToolDevelopment"**. Please follow the [instructions](./DataProcessing/readme.md) in DataProcessing and edit the ``data_path``, ``image_path`` and ``heatmaps_path`` in [main](main.py) and [main_Unet.py](main_Unet.py) accordingly.
+This is the code repo for the experiments presented in **"Creation and Validation of a Chest X-Ray Datasetwith Eye-tracking and Report Dictation for AI ToolDevelopment"**. Please follow the [instructions](../DataProcessing/readme.md) in DataProcessing and edit the ``data_path``, ``image_path`` and ``heatmaps_path`` in [main](main.py) and [main_Unet.py](main_Unet.py) accordingly.
 
 ### Requirements
 The python version is ```python3.6.5```. Package requirements can be installed with one bash command:
