@@ -3,7 +3,7 @@
 # Creation and Validation of a Chest X-Ray Dataset with Eye-tracking and Report Dictation for AI Tool Development
 
 ### Introduction
-This repository contains the code to reproduce the experiments and data preparation for the paper **"Creation and Validation of a Chest X-Ray Datasetwith Eye-tracking and Report Dictation for AI Tool Development"**.
+This repository contains the code to reproduce the experiments and data preparation for the paper **"Creation and Validation of a Chest X-Ray Dataset with Eye-tracking and Report Dictation for AI Tool Development"**.
 If you find this dataset, models or code useful, please cite us using the following bibTex:
 ```
 %Paper:
