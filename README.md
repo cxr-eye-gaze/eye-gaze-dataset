@@ -28,6 +28,7 @@ url = {https://physionet.org/content/egd-cxr/1.0.0/},
 year = {2020}
 }
 ```
+A high level summary of the work can be found [here](https://researchdata.springernature.com/posts/creation-and-validation-of-a-chest-x-ray-dataset-with-eye-tracking-and-report-dictation-for-ai-development?channel_id=behind-the-paper) 
 
 ### Clone this repo by typing in the command line:
 ```bash 
