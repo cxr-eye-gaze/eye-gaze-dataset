@@ -7,13 +7,15 @@ This repository contains the code to reproduce the experiments and data preparat
 If you find this dataset, models or code useful, please cite us using the following bibTex:
 ```
 %Paper:
-@misc{alex2020creation,
-    title={Creation and Validation of a Chest X-Ray Dataset with Eye-tracking and Report Dictation for AI Tool Development},
-    author={Alexandros Karargyris and Satyananda Kashyap and Ismini Lourentzou and Joy Wu and Arjun Sharma and Matthew Tong and Shafiq Abedin and David Beymer and Vandana Mukherjee and Elizabeth A Krupinski and Mehdi Moradi},
-    year={2020},
-    eprint={2009.07386},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@article{karargyris2021creation,
+  title={Creation and validation of a chest X-ray dataset with eye-tracking and report dictation for AI development},
+  author={Karargyris, Alexandros and Kashyap, Satyananda and Lourentzou, Ismini and Wu, Joy T and Sharma, Arjun and Tong, Matthew and Abedin, Shafiq and Beymer, David and Mukherjee, Vandana and Krupinski, Elizabeth A and others},
+  journal={Scientific Data},
+  volume={8},
+  number={1},
+  pages={1--18},
+  year={2021},
+  publisher={Nature Publishing Group}
 }
 
 %Dataset:
